@@ -30,13 +30,17 @@ function AddTransaction() {
                         <input value={text} onChange={(t)=>setText(t.target.value)} type="text" placeholder="Transaction For..." />
                     </div>
                     <div className="form-control">
-                        <label htmlFor="amount"
-                            >Amount <br />
-                            (negative = expense, positive = income)
+                        <label htmlFor="amount"> Amount <br />
                         </label>
                         <input value={amount} onChange={(a)=>setAmount(a.target.value)} type="number" placeholder="Enter amount..." />
                     </div>
-                    <button className="btn">Add transaction</button>
+                     <label htmlFor="amount">
+                            NOTE:<br /> 
+                            Enter amount in NEGATIVE for EXPENSE <br />
+                            Enter amount in POSITIVE for INCOME
+                            
+                        </label>                    
+                    <button className="btn"> Submit </button>
                 </form>
         </div>
     )

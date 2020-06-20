@@ -9,22 +9,24 @@ function IncomeExpense (){
   const income = amounts
   .filter(amount => amount>0)
   .reduce((acc,amount) => (acc+=amount),0) 
-  .toFixed(2);
+  .toFixed()
+  .toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
   const expense = amounts
   .filter(amount => amount<0)
   .reduce((acc,amount) => (acc+=amount),0) 
-  .toFixed(2);
+  .toFixed()
+  .toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
  
   return (
         <div className="inc-exp-container">
         <div>
           <h4>Income</h4>
-          <p className="money plus">{income}</p>
+          <p className="money plus"> Rs {income}</p>
         </div>
         <div>
           <h4>Expense</h4>
-          <p  className="money minus">{expense}</p>
+          <p  className="money minus">Rs {expense}</p>
         </div>
       </div>
     )
